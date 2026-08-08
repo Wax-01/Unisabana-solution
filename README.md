@@ -95,16 +95,31 @@ Cada carpeta no es un ejercicio aislado: usa lo que produjo la anterior. Si dos 
 
 ---
 
-## 4. Cronograma de entrega por corte — ⚠️ pendiente de confirmar
+## 4. Cronograma del semestre (confirmado)
 
-Con el Taller 7 (Opportunities & Solutions) insertado entre Normatividad y Presentación Final, el mapeo original del enunciado ("Corte 2 = Aplicaciones + Tecnológica + Opportunities & Solutions") ya no encaja tal cual, porque el TO-BE ahora depende de que Seguridad (05) y Normatividad (06) ya estén hechos, y esos dos no tenían fecha propia en el enunciado. Propuesta de recalibración — **falta que el docente la confirme**:
+El curso se dicta los sábados. Con el Taller 7 (Opportunities & Solutions) insertado entre Normatividad y Presentación Final, el mapeo original del enunciado ("Corte 2 = Aplicaciones + Tecnológica + Opportunities & Solutions") se recalibró así: el TO-BE (07) se corrió después de Seguridad (05) y Normatividad (06), porque necesita las brechas de ambos para tener sentido. Calendario confirmado 2026-II:
 
-| Corte | Fecha | Carpetas que deberían estar completas |
+| # | Sábado | Taller / actividad |
 |---|---|---|
-| Corte 1 | 14 ago | `00-preliminary-vision/`, `01-bpmn/`, `02-modelo-informacion/` |
-| Corte 2 | 25 sep | `03-arquitectura-c4/`, `04-infraestructura/`, `05-seguridad-stride/`, `06-normatividad/` (AS-IS + riesgos completos, ya no el TO-BE) |
-| — | antes del 13 nov | `07-opportunities-solutions/`, `08-integracion-vistas/` (preparación para el cierre) |
-| Corte 3 | 13 nov | `09-presentacion-final/` y ajustes finales a todo lo anterior |
+| 1 | 25/07 | Taller 0 — Preliminary y Architecture Vision |
+| 2 | 01/08 | Taller 1 — BPMN |
+| 3 | 08/08 | Taller 2 — Modelo de Información |
+| 4 | 15/08 | Cierre y ajustes Corte 1 |
+| 5 | 22/08 | 🟢 **Sustentación Corte 1** (`00`, `01`, `02`) |
+| 6 | 29/08 | Taller 3 — Arquitectura C4 |
+| 7 | 05/09 | Taller 4 — Infraestructura |
+| 8 | 12/09 | Taller 5 — STRIDE |
+| 9 | 19/09 | Taller 6 — Normatividad |
+| 10 | 26/09 | Cierre y ajustes Corte 2 |
+| 11 | 03/10 | 🟢 **Sustentación Corte 2** (`03`, `04`, `05`, `06`) |
+| 12 | 10/10 | Taller 7 — Opportunities & Solutions |
+| 13 | 17/10 | Taller 8 — Integración de Vistas |
+| 14 | 24/10 | Taller 9 — Presentación Final (preparación) |
+| 15 | 31/10 | Ensayo / ajustes |
+| 16 | 07/11 | Cierre Corte 3 |
+| 17 | 14/11 | 🟢 **Presentación Final con el cliente/negocio** (`07`, `08`, `09`) |
+
+Cada corte queda con al menos un sábado libre de contenido nuevo antes de sustentar (15/08, 26/09), y el cierre final tiene dos sábados de colchón (31/10 y 07/11) — el Taller 7 cae exactamente donde había espacio, sin apretar el resto de la secuencia.
 
 ---
 
