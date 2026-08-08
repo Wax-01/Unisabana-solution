@@ -113,13 +113,13 @@ El curso se dicta los sábados. Con el Taller 7 (Opportunities & Solutions) inse
 | 10 | 26/09 | Cierre y ajustes Corte 2 |
 | 11 | 03/10 | 🟢 **Sustentación Corte 2** (`03`, `04`, `05`, `06`) |
 | 12 | 10/10 | Taller 7 — Opportunities & Solutions |
-| 13 | 17/10 | Taller 8 — Integración de Vistas |
-| 14 | 24/10 | Taller 9 — Presentación Final (preparación) |
-| 15 | 31/10 | Ensayo / ajustes |
-| 16 | 07/11 | Cierre Corte 3 |
-| 17 | 14/11 | 🟢 **Presentación Final con el cliente/negocio** (`07`, `08`, `09`) |
+| — | ~~17/10~~ | Sin clase |
+| 13 | 24/10 | Taller 8 — Integración de Vistas |
+| 14 | 31/10 | Taller 9 — Presentación Final (preparación) |
+| 15 | 07/11 | Cierre Corte 3 / Ensayo |
+| 16 | 14/11 | 🟢 **Presentación Final con el cliente/negocio** (`07`, `08`, `09`) |
 
-Cada corte queda con al menos un sábado libre de contenido nuevo antes de sustentar (15/08, 26/09), y el cierre final tiene dos sábados de colchón (31/10 y 07/11) — el Taller 7 cae exactamente donde había espacio, sin apretar el resto de la secuencia.
+Cada corte queda con al menos un sábado libre de contenido nuevo antes de sustentar (15/08, 26/09). El cierre final queda con un solo sábado de colchón (07/11) en vez de dos, porque el 17/10 no hay clase — sigue alcanzando para los 3 talleres restantes sin romper el orden de dependencias, pero ya sin margen extra: si se corre otra fecha en esta ventana, revisar de nuevo.
 
 ---
 
