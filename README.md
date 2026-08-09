@@ -113,7 +113,7 @@ El curso se dicta los sábados. Con el Taller 7 (Opportunities & Solutions) inse
 | 10 | 26/09 | Cierre y ajustes Corte 2 |
 | 11 | 03/10 | 🟢 **Sustentación Corte 2** (`03`, `04`, `05`, `06`) |
 | 12 | 10/10 | Taller 7 — Opportunities & Solutions |
-| — | ~~17/10~~ | Sin clase |
+| — | ~~17/10~~ | Semana de receso — sin clase |
 | 13 | 24/10 | Taller 8 — Integración de Vistas |
 | 14 | 31/10 | Taller 9 — Presentación Final (preparación) |
 | 15 | 07/11 | Cierre Corte 3 / Ensayo |
