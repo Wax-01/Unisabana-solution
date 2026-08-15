@@ -7,7 +7,7 @@ técnicas de abajo.
 
 # Arquitectura Empresarial — [Nombre del Cliente]
 
-**Equipo:** [Nombre del equipo] · [Integrante 1, Integrante 2, Integrante 3]
+**Equipo:** [AGY] · [Julian David Aguilar, Juan esteban Ramirez]
 **Curso:** Arquitectura Empresarial — Universidad de La Sabana
 
 ---
