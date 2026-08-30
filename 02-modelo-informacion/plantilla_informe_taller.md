@@ -31,7 +31,6 @@ En el diagrama de contexto se decidió representar al sistema central como el en
 - Programar la realización de las encuestas.
 - Notificar al profesor con una semana de anticipación.
 - Registrar las respuestas de los estudiantes.
-- Generar resultados y reportes.
 
 ### ¿Qué herramientas se usaron?
 - draw.io
