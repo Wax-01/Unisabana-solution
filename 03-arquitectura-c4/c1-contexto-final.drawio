@@ -1,0 +1,47 @@
+<mxfile host="app.diagrams.net" modified="2026-09-10T15:00:00.000Z" agent="AREM-Taller3" version="24.0.0" type="device">
+  <diagram id="c1-contexto-unisabana" name="C1 - Contexto Sistema de Encuestas Unisabana">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="coord" value="Coordinadora de Encuestas&#10;(Vicerrectoría de Desarrollo)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1168bd;fontColor=#ffffff;strokeColor=#0b4884;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="30" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="profesor" value="Profesor" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1168bd;fontColor=#ffffff;strokeColor=#0b4884;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="190" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="estudiante" value="Estudiante PAT" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1168bd;fontColor=#ffffff;strokeColor=#0b4884;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="350" width="180" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="sistema" value="Sistema de Automatización de&#10;Logística de Encuestas de Satisfacción&#10;[Sistema en alcance]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#08427b;fontColor=#ffffff;strokeColor=#052e56;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="400" y="190" width="260" height="120" as="geometry" />
+        </mxCell>
+
+        <mxCell id="siga" value="SIGA&#10;(Sistema de Información y&#10;Gestión Académica)&#10;[Sistema externo]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#8a8a8a;fontColor=#ffffff;strokeColor=#5c5c5c;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="800" y="60" width="230" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="correo" value="Correo Institucional&#10;(Outlook / Exchange Online)&#10;[Sistema externo]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#8a8a8a;fontColor=#ffffff;strokeColor=#5c5c5c;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="800" y="330" width="230" height="110" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e1" value="Define criterios y parámetros de la encuesta&#10;(fechas, tamaño de muestra)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;endArrow=block;" edge="1" parent="1" source="coord" target="sistema">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="Recibe notificación y aprueba/ajusta&#10;aplicación en su horario de clase" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;endArrow=block;" edge="1" parent="1" source="profesor" target="sistema">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="Diligencia la encuesta en el&#10;horario asignado" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;endArrow=block;" edge="1" parent="1" source="estudiante" target="sistema">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="Consulta horarios de clase y disponibilidad&#10;de estudiantes (consulta a BD académica)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;dashed=1;endArrow=block;" edge="1" parent="1" source="sistema" target="siga">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="Envía notificaciones de programación&#10;(Exchange/SMTP)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;dashed=1;endArrow=block;" edge="1" parent="1" source="sistema" target="correo">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

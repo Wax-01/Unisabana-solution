@@ -18,7 +18,7 @@ técnicas de abajo.
 
 ## 🩺 El problema
 
-[2-4 líneas, en el lenguaje del cliente, no en el nuestro. Ej: "Hoy la información de un paciente vive en tres sistemas que no se hablan entre sí: la app, el ERP y la telemedicina. Eso genera reprocesos, retrasos en la atención y dificulta cumplir con la normativa de protección de datos clínicos."]
+Hoy se tienen que manejar manualmente grandes cantidades de datos al momento de revisar la logistica de la encuesta anual de satisfaccion, en tareas repetitivas que consumen mucho tiempo y son propensas al error. 
 
 ## 💡 Lo que proponemos
 
@@ -50,4 +50,5 @@ Todo el análisis que sustenta esta propuesta está documentado carpeta por carp
 
 ## 👥 Contacto
 
-[Nombre de quien responde preguntas del cliente sobre esta propuesta, y su correo/usuario de GitHub.]
+Julian David Aguilar Zambrano
+Julianagza@unisabana
