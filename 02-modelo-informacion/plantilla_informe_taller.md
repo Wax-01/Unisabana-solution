@@ -31,7 +31,6 @@ En el diagrama de contexto se decidió representar al sistema central como el en
 - Programar la realización de las encuestas.
 - Notificar al profesor con una semana de anticipación.
 - Registrar las respuestas de los estudiantes.
-- Generar resultados y reportes.
 
 ### ¿Qué herramientas se usaron?
 - draw.io
@@ -52,7 +51,7 @@ Las principales relaciones son:
 - Una programación genera notificaciones.
 - Cada notificación está dirigida a un profesor.
 
-![alt text](/AREM-Proyecto-Cliente/img/BPMN-UniSabana.drawio.png)
+![alt text](/img/BPMN-UniSabana.drawio.png)
 
 ## 🌐 Diagrama de contexto
 El diagrama de contexto representa las interacciones entre el sistema y los actores externos.
@@ -65,6 +64,6 @@ Los principales actores son:
 - **Estudiante**: recibe y responde la encuesta.
 - **Notificador**: envía la notificación al profesor.
 
- ![alt text](/AREM-Proyecto-Cliente/img/contexto.png)
+ ![alt text](/img/contexto.png)
 
 ---
