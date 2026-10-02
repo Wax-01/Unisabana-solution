@@ -6,7 +6,7 @@
         <mxCell id="1" parent="0" />
 
         <!-- TITLE -->
-        <mxCell id="titulo" value="Mapa de Infraestructura — Proceso de la Encuesta de Autosatisfacción Institucional&#10;Universidad de La Sabana · Secretaría General / Dirección de Planeación" style="text;html=1;align=center;verticalAlign=middle;fontSize=16;fontStyle=1;fontColor=#222222;" vertex="1" parent="1">
+        <mxCell id="titulo" value="Mapa de Infraestructura — Proceso de la Encuesta de Autosatisfacción Institucional&#10;Universidad de La Sabana · Vicerrectoría de Desarrollo" style="text;html=1;align=center;verticalAlign=middle;fontSize=16;fontStyle=1;fontColor=#222222;" vertex="1" parent="1">
           <mxGeometry x="40" y="10" width="1160" height="45" as="geometry" />
         </mxCell>
 
@@ -25,7 +25,7 @@
         <mxCell id="zona_gestion" value="Actores de gestión" style="swimlane;whiteSpace=wrap;html=1;startSize=28;rounded=1;arcSize=6;fillColor=#eef2f7;strokeColor=#8c98a8;fontStyle=1;fontSize=13;verticalAlign=top;" vertex="1" parent="1">
           <mxGeometry x="40" y="270" width="240" height="360" as="geometry" />
         </mxCell>
-        <mxCell id="secretaria" value="Secretaría General /&#10;Dirección de Planeación&#10;(persona responsable)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=11;" vertex="1" parent="zona_gestion">
+        <mxCell id="secretaria" value="Vicerrectoría de Desarrollo&#10;Coordinadora de experiencia y servicio&#10;(persona responsable)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=11;" vertex="1" parent="zona_gestion">
           <mxGeometry x="20" y="50" width="200" height="90" as="geometry" />
         </mxCell>
         <mxCell id="pat" value="Estudiantes PAT" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=11;" vertex="1" parent="zona_gestion">
@@ -33,13 +33,13 @@
         </mxCell>
 
         <!-- ZONE: Proceso manual (center) -->
-        <mxCell id="zona_manual" value="Proceso manual — Gestión de la encuesta (Secretaría)" style="swimlane;whiteSpace=wrap;html=1;startSize=28;rounded=1;arcSize=6;fillColor=#fdf2f0;strokeColor=#c0392b;fontStyle=1;fontSize=13;verticalAlign=top;" vertex="1" parent="1">
+        <mxCell id="zona_manual" value="Proceso manual — Gestión de la encuesta (Vicerrectoría de Desarrollo)" style="swimlane;whiteSpace=wrap;html=1;startSize=28;rounded=1;arcSize=6;fillColor=#fdf2f0;strokeColor=#c0392b;fontStyle=1;fontSize=13;verticalAlign=top;" vertex="1" parent="1">
           <mxGeometry x="320" y="270" width="560" height="360" as="geometry" />
         </mxCell>
-        <mxCell id="excel_muestreo" value="⚠️ Hoja de cálculo — Muestreo de estudiantes&#10;por programa y semestre&#10;sin control de versión ni respaldo" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#c0392b;fontColor=#ffffff;strokeColor=#7b1f1f;strokeWidth=2;fontSize=11;fontStyle=1;" vertex="1" parent="zona_manual">
+        <mxCell id="excel_muestreo" value="⚠️ Hoja de cálculo (OneDrive) — Muestreo de estudiantes&#10;por programa y semestre&#10;sin control de versión ni respaldo" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#c0392b;fontColor=#ffffff;strokeColor=#7b1f1f;strokeWidth=2;fontSize=11;fontStyle=1;" vertex="1" parent="zona_manual">
           <mxGeometry x="150" y="40" width="280" height="75" as="geometry" />
         </mxCell>
-        <mxCell id="excel_pat" value="⚠️ Hoja de cálculo — Asignación de PAT&#10;a horarios de clase&#10;cruce manual, sin automatización" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#c0392b;fontColor=#ffffff;strokeColor=#7b1f1f;strokeWidth=2;fontSize=11;fontStyle=1;" vertex="1" parent="zona_manual">
+        <mxCell id="excel_pat" value="⚠️ Hoja de cálculo (OneDrive) — Asignación de PAT&#10;a horarios de clase&#10;cruce manual, sin automatización" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#c0392b;fontColor=#ffffff;strokeColor=#7b1f1f;strokeWidth=2;fontSize=11;fontStyle=1;" vertex="1" parent="zona_manual">
           <mxGeometry x="150" y="155" width="280" height="75" as="geometry" />
         </mxCell>
         <mxCell id="correo" value="⚠️ Correo institucional —&#10;Notificación a profesores&#10;envío manual, uno a uno" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#c0392b;fontColor=#ffffff;strokeColor=#7b1f1f;strokeWidth=2;fontSize=11;fontStyle=1;" vertex="1" parent="zona_manual">
