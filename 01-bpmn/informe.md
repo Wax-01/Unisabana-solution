@@ -34,7 +34,9 @@ El diagrama representa fielmente el proceso que realiza la cliente cuando tiene 
 
 ## 📈 Diagrama final entregado
 
-![Diagrama](/AREM-Proyecto-Cliente/img/BPMN-UniSabana.drawio.png)
+![Diagrama BPMN](modelo-final.png)
+
+Archivo editable: [`modelo-final.drawio`](modelo-final.drawio)
 
 ## 📋 Tabla de actores, entidades o componentes
 
@@ -62,6 +64,10 @@ Tambien se investigo sobre el modelado de procesos ciclicos o iterativos, comune
 
 Esta investigacion se relaciona directamente con el taller porque permitio justificar las decisiones de diseño tomadas por el equipo, en particular la inclusion del carril del Profesor como un actor con capacidad de decision propia, y la representacion del proceso como un ciclo retroalimentado en lugar de un flujo lineal simple, reflejando con mayor fidelidad la realidad del proceso manual que hoy realiza la Universidad de La Sabana.
 
+## 📚 Referencias
+
+Ver [`referencias.md`](referencias.md) para el listado completo de fuentes consultadas.
+
 ---
 
-_Este documento hace parte de la entrega del taller X del curso AREM (Arquitectura Empresarial) - Universidad de La Sabana._
+_Este documento hace parte de la entrega del Taller 1 del curso AREM (Arquitectura Empresarial) - Universidad de La Sabana._

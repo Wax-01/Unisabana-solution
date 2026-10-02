@@ -75,9 +75,13 @@ Las expectativas de la cliente son evitar que la encuesta se aplique sin que los
 
 ![Modelo ERD](erd-final.png)
 
+Archivo editable: [`erd-final.drawio`](erd-final.drawio)
+
 ### Diagrama de contexto
 
 ![Diagrama de contexto](diagrama-contexto-final.png)
+
+Archivo editable: [`diagrama-contexto-final.drawio`](diagrama-contexto-final.drawio)
 
 ## 📋 Tabla de actores, entidades o componentes
 

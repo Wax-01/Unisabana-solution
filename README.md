@@ -53,6 +53,21 @@ Todo el análisis que sustenta esta propuesta está documentado carpeta por carp
 | `08-integracion-vistas/` | Cómo se conecta todo lo anterior en una sola arquitectura | En preparación |
 | `09-presentacion-final/` | Presentación ejecutiva, plan de implementación y gobernanza | En preparación |
 
+## 🔗 Repositorios relacionados
+
+Los talleres de práctica del equipo (caso de clase y borradores) viven en repositorios aparte. Este repositorio reúne la parte aplicada al cliente.
+
+| Taller | Repositorio |
+|---|---|
+| Taller 0 — Ficha y visión | [Ficha-Tecnica](https://github.com/Wax-01/Ficha-Tecnica) |
+| Taller 1 — BPMN | [BPMN-Taller](https://github.com/Wax-01/BPMN-Taller) |
+| Taller 2 — Modelo de información | [ERD-Taller](https://github.com/Wax-01/ERD-Taller) |
+| Taller 3 — Arquitectura C4 | [Taller-Arquitectura](https://github.com/Wax-01/Taller-Arquitectura) |
+| Taller 4 — Infraestructura | [Infraestructura-taller](https://github.com/Wax-01/Infraestructura-taller) |
+| Taller 5 — Seguridad | [Seguridad-Taller](https://github.com/Wax-01/Seguridad-Taller) |
+| Taller 6 — Normatividad | [Taller-Normatividad](https://github.com/Wax-01/Taller-Normatividad) |
+| Taller 7 — Oportunidades y soluciones | [Oportunidades-Taller](https://github.com/Juanr123xyz/Oportunidades-Taller) |
+
 ## 👥 Contacto
 
 - Julian David Aguilar Zambrano — Julianagza@unisabana.edu.co
