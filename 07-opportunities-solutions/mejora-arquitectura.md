@@ -11,22 +11,24 @@ Vicerrectoría de Desarrollo — Universidad de La Sabana
 
 ## 1. Diagnóstico inicial
 
+> Este diagnóstico parte del estado actual (AS-IS) documentado en los talleres 3 a 6: C2 en `03-arquitectura-c4/`, mapa en `04-infraestructura/`, STRIDE en `05-seguridad-stride/` y checklist en `06-normatividad/`.
+
 ### Fricción operativa
-El proceso actual de programación y ejecución de encuestas de satisfacción depende de un flujo semi-manual. Aunque en el Taller 3 se modelaron tres flujos en Power Automate (Cruce de Horarios, Notificación a Profesores, Distribución y Registro de Encuestas), persiste una elevada fricción en la confirmación de disponibilidad con los docentes y en el agendamiento espacial. Las respuestas de aceptación o rechazo por parte de los profesores son procesadas de manera diferida por correo electrónico, lo que genera retrasos prolongados en la fijación de fechas de encuesta.
+Hoy no hay ninguna automatización en el proceso. La coordinadora exporta a mano los datos de SIGA, arma la muestra en la **Hoja de Muestreo**, cruza a mano la disponibilidad de los estudiantes PAT en la **Hoja de Asignación PAT** (las dos en Excel sobre OneDrive) y avisa a cada profesor por **correo institucional**, uno a uno. Las respuestas de aceptación o rechazo llegan a su buzón sin registro estructurado, y cada rechazo obliga a repetir el cruce.
 
-### Problemas recurrentes señalados por el cliente
-1. **Baja tasa de respuesta y tardanza en la recolección:** La notificación tardía y los enlaces genéricos por correo electrónico provocan desinterés en los estudiantes seleccionados (muestra PAT).
-2. **Re-procesamiento por rechazo de profesores:** Cuando un docente no acepta ceder su espacio lectivo, el coordinador debe reiniciar manualmente el cruce de disponibilidad en SIGA y reprogramar la encuesta.
-3. **Limitaciones de concurrencia y escalabilidad en la persistencia:** El uso de SharePoint Lists y archivos Excel como almacén de datos (Taller 4) genera cuellos de botella durante las fases pico de aplicación de encuestas, afectando la velocidad de registro e integridad de los datos.
+### Problemas recurrentes (hallazgos del Taller 4)
+1. **Re-procesamiento por rechazo de profesores (H4, H5):** cuando un profesor no cede su clase, la coordinadora debe volver a cruzar horarios en la hoja y escribir nuevos correos.
+2. **Dependencia de una sola persona y de archivos sin respaldo (H6, H3):** si la coordinadora falta o una hoja se daña, el proceso se detiene.
+3. **SIGA sin API de integración conocida (H1):** los datos salen por exportación manual y quedan desactualizados apenas se descargan.
 
-### Vulnerabilidades de seguridad y riesgos (Talleres 4 y 5 - STRIDE)
-Basados en el análisis STRIDE realizado en el Taller 5 para la Universidad de La Sabana:
-- **T1 - Exposición del Repositorio de Datos (Information Disclosure):** Almacenar información de estudiantes, profesores y resultados de encuestas en SharePoint Lists sin un esquema estricto de Control de Acceso Basado en Roles (RBAC) o encriptación granular expone datos sensibles protegidos por la Ley 1581 de 2012 (Habeas Data).
-- **T2 - Suplantación de la Cuenta de Servicio (Spoofing / Elevation):** La ejecución de los flujos de Power Automate mediante cuentas de usuario o de servicio compartidas sin Autenticación Multi-Factor (MFA) ni principio de mínimo privilegio expone al sistema a suplantación de identidad.
-- **T6 - Exfiltración de Datos por Conectores (Elevation of Privilege / Exfiltration):** Ausencia de políticas de Prevención de Pérdida de Datos (DLP) en la entidad tenant de Power Platform, lo que permitiría desviar la información a servicios externos no autorizados.
+### Vulnerabilidades de seguridad y cumplimiento (talleres 5 y 6)
+- **T1 - Divulgación de datos personales en las hojas de OneDrive (riesgo Alto):** las copias de datos de SIGA quedan expuestas según con quién y con qué enlace se compartan las hojas (checklist #5 y #6).
+- **T2 - Suplantación de la cuenta de la coordinadora (riesgo Alto):** una sola cuenta da acceso a SIGA, a las hojas y al buzón; no se confirmó MFA (checklist #10).
+- **T3 - Exportaciones de SIGA en el equipo local (riesgo Alto):** archivos con datos personales sin borrado ni cifrado confirmados (checklist #14).
+- **T4 - Detención del proceso por operadora única (riesgo Alto):** sin respaldo ni procedimiento documentado (checklist #13).
 
-### Resumen del problema actual (Foto del AS-IS)
-El sistema actual en alcance está fragmentado en herramientas de bajo código (Power Automate, SharePoint Lists, Excel) con acoplamiento a procesos manuales de validación. Carece de mecanismos de seguridad avanzada para protección de datos personales (Ley 1581/2012), utiliza esquemas de persistencia no diseñados para alta concurrencia y genera demoras acumuladas en la acreditación institucional debido al ciclo lento de confirmación con los profesores.
+### Resumen del problema actual (foto del AS-IS)
+El proceso actual es manual y depende de una persona, dos hojas de Excel y el correo. Los datos personales salen de SIGA y quedan copiados fuera de sus controles, y la trazabilidad de la muestra no alcanza para soportar la autoevaluación institucional (checklist #17).
 
 ---
 
@@ -48,8 +50,8 @@ El sistema actual en alcance está fragmentado en herramientas de bajo código (
 | Solución priorizada | Esfuerzo | Impacto | Quick win / Largo plazo | Justificación |
 |---|---|---|---|---|
 | **Solución A:** Implementación de Tarjetas Adaptativas (Adaptive Cards en Outlook/Teams) + Integración API con SIGA para confirmación docente en 1-click. | Medio | Alto | Quick Win | Elimina el principal cuello de botella operativo del proceso al permitir que el docente acepte o rechace ceder su espacio de clase directamente desde la notificación sin cambiar de ventana, automatizando la reprogramación en tiempo real. |
-| **Solución B:** Migración a Microsoft Dataverse / Azure SQL con RBAC estricto y configuración de Políticas DLP en Power Platform. | Medio | Alto | Quick Win | Resuelve de manera inmediata las vulnerabilidades T1 y T6 de STRIDE (Taller 5) y garantiza el cumplimiento normativo con la Ley 1581 de 2012, asegurando los datos personales de estudiantes y profesores contra accesos no autorizados y exfiltración. |
-| **Solución C:** Transición a Service Principals (Azure Active Directory / Entra ID) y uso de Tokens de Respuesta Única para estudiantes. | Alto | Alto | Largo plazo | Elimina los riesgos de suplantación de identidad (T2) en la automatización y previene el fraude o llenado múltiple de encuestas, elevando la confiabilidad de los datos de acreditación. |
+| **Solución B:** Migración a Microsoft Dataverse / Azure SQL con RBAC estricto y configuración de Políticas DLP en Power Platform. | Medio | Alto | Quick Win | Cierra las amenazas T1, T3 y T7 del STRIDE AS-IS (Taller 5), al reemplazar las hojas y las exportaciones sueltas por un almacén con control de acceso por rol, y garantiza el cumplimiento normativo con la Ley 1581 de 2012, asegurando los datos personales de estudiantes y profesores contra accesos no autorizados y exfiltración. |
+| **Solución C:** Transición a Service Principals (Azure Active Directory / Entra ID) y uso de Tokens de Respuesta Única para estudiantes. | Alto | Alto | Largo plazo | Mitiga la suplantación de la cuenta de la coordinadora (T2) y evita que la automatización herede sus riesgos y previene el fraude o llenado múltiple de encuestas, elevando la confiabilidad de los datos de acreditación. |
 
 ---
 
@@ -69,13 +71,19 @@ En la arquitectura TO-BE, el proceso se transforma de la siguiente manera:
 - **Flujo de Integración SIGA:** Creación de un conector personalizado seguro (Custom Connector con OAuth 2.0) hacia las APIs de SIGA.
 
 > **Anexos del modelo:**
-> - Diagrama C2 TO-BE de Aplicaciones: `entrega/to-be-aplicaciones-final.drawio`
-> - Mapa TO-BE de Tecnología e Infraestructura: `entrega/to-be-tecnologia-final.drawio`
+> - Diagrama C2 TO-BE de Aplicaciones: [`to-be-aplicaciones-final.drawio`](to-be-aplicaciones-final.drawio)
+> - Mapa TO-BE de Tecnología e Infraestructura: [`to-be-tecnologia-final.drawio`](to-be-tecnologia-final.drawio)
 
-### 3.3 Controles de seguridad integrados (Mitigación STRIDE - Taller 5)
-1. **Mitigación T1 (Information Disclosure):** Encriptación en tránsito (TLS 1.3) y en reposo (AES-256 / TDE) en Dataverse. Asignación de roles de acceso restringidos por unidad organizacional.
-2. **Mitigación T2 (Spoofing):** Autenticación vía Entra ID (Azure AD) con políticas de Acceso Condicional y Service Principals sin intervención de credenciales de usuario.
-3. **Mitigación T6 (Elevation of Privilege / Exfiltration):** Aplicación de Políticas DLP a nivel de entorno en Power Platform, bloqueando conectores no empresariales (como Google Drive, Dropbox, HTTP no autenticado).
+### 3.3 Controles de seguridad integrados (amenazas del STRIDE AS-IS, Taller 5)
+| Amenaza AS-IS | Cómo la atiende el TO-BE |
+|---|---|
+| T1 y T7 - Divulgación y acceso a datos de SIGA en las hojas | Almacén en Dataverse con roles restringidos por unidad; los datos dejan de copiarse a hojas compartidas. |
+| T2 - Suplantación de la cuenta de la coordinadora | Autenticación con Entra ID, MFA y acceso condicional; los flujos se ejecutan con Service Principals y no con la cuenta de la coordinadora. |
+| T3 - Exportaciones de SIGA en el equipo local | Integración por API con SIGA: no hay archivos descargados. |
+| T4 - Operadora única | Los flujos y el almacén no dependen del equipo ni de la presencia de una persona. |
+| T5 y T6 - Errores en la hoja y respuestas sin registro | Confirmación del profesor con Adaptive Cards, registrada automáticamente con fecha y usuario. |
+
+La solución propuesta trae sus propios riesgos (cuentas de conexión, conectores, límites de solicitudes, enlaces de aprobación). Están en [`riesgos-solucion-propuesta.xlsx`](riesgos-solucion-propuesta.xlsx), IDs R1 a R7. Ese fue el primer análisis STRIDE del equipo, hecho sobre la solución y no sobre el proceso actual. La mitigación de exfiltración por conectores (políticas DLP en Power Platform) responde a esos riesgos de la solución, no a una amenaza actual.
 
 ---
 
@@ -84,15 +92,17 @@ En la arquitectura TO-BE, el proceso se transforma de la siguiente manera:
 | Mejora / Solución | Beneficio de negocio | Beneficio tecnológico/seguridad | Riesgo, limitación o dependencia de implementación |
 |---|---|---|---|
 | **Tarjetas Adaptativas (Adaptive Cards) + API SIGA** | Reducción del tiempo de programación de semanas a horas; incremento en el cumplimiento de encuestas. | Eliminación de correos no estructurados y automatización síncrona de eventos de agendamiento. | Dependencia de la disponibilidad y tiempo de respuesta de las APIs de SIGA desarrolladas por la Universidad. |
-| **Dataverse / Azure SQL + Políticas DLP** | Garantía de cumplimiento legal (Ley 1581 de 2012) ante auditorías y protección de reputación institucional. | Eliminación de vulnerabilidades T1 y T6 de STRIDE; almacenamiento escalable de alta concurrencia. | Costo adicional de licenciamiento (Dataverse / Azure SQL) dentro del tenant de la universidad. |
-| **Service Principals + Tokens Únicos (Entra ID)** | Elevada validez de la información recolectada para los procesos institucionales de acreditación. | Eliminación de la suplantación de identidades (T2); trazabilidad y auditoría completa en Azure Logs. | Requiere permisos de administración global de Entra ID para la creación y gestión de App Registrations. |
+| **Dataverse / Azure SQL + Políticas DLP** | Garantía de cumplimiento legal (Ley 1581 de 2012) ante auditorías y protección de reputación institucional. | Cierre de las amenazas T1, T3 y T7 del AS-IS; almacenamiento escalable de alta concurrencia. | Costo adicional de licenciamiento (Dataverse / Azure SQL) dentro del tenant de la universidad. |
+| **Service Principals + Tokens Únicos (Entra ID)** | Elevada validez de la información recolectada para los procesos institucionales de acreditación. | Mitigación de la suplantación de identidades (T2); trazabilidad y auditoría completa en Azure Logs. | Requiere permisos de administración global de Entra ID para la creación y gestión de App Registrations. |
 
 ---
 
 ## Anexos
-- **Diagrama TO-BE de Aplicaciones:** `entrega/to-be-aplicaciones-final.drawio`
-- **Diagrama TO-BE de Tecnología:** `entrega/to-be-tecnologia-final.drawio`
-- **Matriz de brechas (Gap Analysis):** `entrega/matriz-brechas.xlsx`
+- **Diagrama TO-BE de Aplicaciones:** [`to-be-aplicaciones-final.drawio`](to-be-aplicaciones-final.drawio)
+- **Diagrama TO-BE de Tecnología:** [`to-be-tecnologia-final.drawio`](to-be-tecnologia-final.drawio)
+- **Matriz de brechas (Gap Analysis):** [`matriz-brechas.xlsx`](matriz-brechas.xlsx)
+- **Primera propuesta C1/C2 (Taller 3, versión inicial):** [`c1-contexto-to-be-v1.drawio`](c1-contexto-to-be-v1.drawio) y [`c2-contenedores-to-be-v1.drawio`](c2-contenedores-to-be-v1.drawio). Usa Forms, Power Automate, SharePoint y Power BI; antecede a la propuesta con Dataverse de esta carpeta.
+- **Riesgos de la solución propuesta (R1 a R7):** [`riesgos-solucion-propuesta.xlsx`](riesgos-solucion-propuesta.xlsx)
 
 ---
 

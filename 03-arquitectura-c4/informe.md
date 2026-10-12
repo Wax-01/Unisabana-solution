@@ -9,37 +9,45 @@ _Taller 3 - Arquitectura Actual del Sistema con el Modelo C4_
 
 ## 🧠 Descripción general del trabajo
 
-El objetivo de este taller fue representar, con las vistas **C1 (Contexto)** y **C2 (Contenedores)** del modelo C4, la arquitectura del sistema que nuestro cliente real — la **Universidad de La Sabana**, a través de la Vicerrectoría de Desarrollo — necesita para automatizar la logística de su encuesta anual de satisfacción estudiantil.
+El objetivo de este taller fue representar, con las vistas **C1 (Contexto)** y **C2 (Contenedores)** del modelo C4, la **arquitectura actual (AS-IS)** con la que la **Vicerrectoría de Desarrollo de la Universidad de La Sabana** gestiona hoy la logística de la encuesta anual de autosatisfacción: cómo arma la muestra, cómo asigna a los estudiantes PAT a las clases y cómo avisa a los profesores.
 
-Este taller es la continuación directa de los talleres previos hechos con el mismo cliente:
-- **Taller 0** (ficha de caracterización y visión) identificó el problema: la programación de horarios para aplicar la encuesta y el envío de notificaciones a profesores se hace manualmente, es repetitivo y propenso a errores, y la solución debe construirse solo con herramientas ya aprobadas por la universidad (Power Automate, Office 365, Power BI).
-- **Taller 1** (BPMN) modeló el proceso con tres actores (Coordinadora, SIGA, Profesor) y dejó explícito que SIGA es un proveedor pasivo de información, y que el profesor conserva la autoridad de aprobar o rechazar la aplicación de la encuesta en su horario.
-- **Taller 2** (modelo de información) identificó las seis entidades centrales (Encuesta, Programación, Estudiante, Salón, Profesor, Notificación) y las responsabilidades del sistema: recibir criterios, consultar disponibilidad, programar, notificar con una semana de antelación y registrar respuestas.
+Hoy no existe una aplicación para este proceso. El "sistema" es un conjunto de herramientas operadas a mano por la coordinadora: exporta datos de **SIGA**, los trabaja en **dos hojas de Excel guardadas en OneDrive** y avisa a cada profesor por **correo institucional**, uno a uno. Eso es lo que se modela aquí.
 
-Este taller traduce esos hallazgos a un nivel de abstracción C4: primero se practicó la metodología con el caso base de clase (RedExpress) y luego se aplicó al cliente real.
+> **Corrección del Corte 2.** La primera versión de este taller modelaba la solución que el equipo propone (Microsoft Forms, Power Automate, SharePoint y Power BI), que todavía no existe. Esa versión se conserva como vista TO-BE en [`07-opportunities-solutions/c1-contexto-to-be-v1.drawio`](../07-opportunities-solutions/c1-contexto-to-be-v1.drawio) y [`c2-contenedores-to-be-v1.drawio`](../07-opportunities-solutions/c2-contenedores-to-be-v1.drawio).
+
+Este taller continúa los talleres previos con el mismo cliente:
+- **Taller 0** (ficha de caracterización): el problema es el manejo manual de grandes volúmenes de datos en tareas repetitivas y propensas al error; la restricción es usar solo herramientas autorizadas por la universidad.
+- **Taller 1** (BPMN): tres participantes (Coordinadora, SIGA, Profesor). SIGA es un proveedor pasivo de información y el profesor decide si cede su clase.
+- **Taller 2** (modelo de información): entidades Encuesta, Programación, Estudiante, Salón, Profesor y Notificación. Hoy esas entidades viven en las dos hojas de Excel.
 
 ## 🔧 Proceso de desarrollo
 
-1. Se estudió la [guía paso a paso del taller](../clase/guia_paso_a_paso_c4.md) y se practicó la metodología de 4 pasos por vista sobre RedExpress en la sesión de clase (ver [`clase/notas.md`](../clase/notas.md) y los borradores en `clase/*.drawio`).
-2. Para el cliente real, se revisaron los tres entregables previos (`00-preliminary-vision`, `01-bpmn`, `02-modelo-informacion`) para extraer actores, sistemas y responsabilidades ya validadas, en vez de volver a levantarlas desde cero.
-3. **C1**: se definió el sistema en alcance como el "Sistema de Automatización de Logística de Encuestas de Satisfacción" (una sola caja). Se identificaron tres actores (Coordinadora de Encuestas, Profesor, Estudiante PAT) y dos sistemas externos que el equipo no controla: **SIGA** (plataforma académica institucional que provee horarios y disponibilidad) y el **Correo Institucional** (Exchange Online, usado para notificar).
-4. **C2**: se decidió que, dado que la solución está restringida a herramientas Microsoft ya aprobadas por la universidad, los contenedores naturales son flujos de **Power Automate** (programación y notificación), formularios de **Microsoft Forms** (configuración de criterios y aplicación de la encuesta), un repositorio de datos en **SharePoint List/Excel Online** (infraestructura) y un **Power BI** de seguimiento — en vez de proponer una arquitectura de microservicios ajena a las restricciones del cliente.
-5. Se etiquetó cada relación con el mecanismo real de comunicación entre servicios Microsoft 365 (conectores REST, Exchange/SMTP), y se validaron ambas vistas contra la [checklist de autoevaluación](../clase/guia_paso_a_paso_c4.md#checklist-de-autoevaluación-antes-de-entregar).
-6. Herramienta usada: **draw.io**, exportado como `.drawio` para conservar la edición nativa de los diagramas.
+1. Se estudió la [guía paso a paso del taller](https://github.com/Wax-01/Taller-Arquitectura/blob/main/clase/guia_paso_a_paso_c4.md) y se practicó la metodología de 4 pasos por vista sobre el caso RedExpress (notas y borradores en la carpeta `clase/` del [repositorio del taller](https://github.com/Wax-01/Taller-Arquitectura)).
+2. Para el cliente se tomaron los actores, sistemas y herramientas ya confirmados en los talleres 0, 1 y 4, en lugar de volver a levantarlos.
+3. **C1**: el sistema en alcance es la **gestión manual de la logística de la encuesta** (una sola caja). Actores: la coordinadora, el estudiante PAT y el profesor. Sistemas externos que la Vicerrectoría no controla: **SIGA** y el **correo institucional (Exchange Online)**.
+4. **C2**: se abrió la caja en los dos contenedores de datos que existen hoy, la **Hoja de Muestreo** y la **Hoja de Asignación PAT** (libros de Excel en OneDrive). Cada relación indica el mecanismo real: exportación manual CSV/Excel desde SIGA, edición de Excel por HTTPS y correo escrito a mano en Outlook.
+5. Se revisó que los nombres de los contenedores y sistemas externos fueran idénticos a los del mapa de infraestructura (Taller 4), el DFD (Taller 5) y el checklist (Taller 6). Ver la [tabla de trazabilidad](../trazabilidad.md).
+6. Herramienta usada: **draw.io**, exportado como `.drawio`.
 
 ## 🧩 Análisis del modelo propuesto
 
-- **Estructura del modelo**: el C1 deja el sistema como una sola caja frente a sus tres actores y dos integraciones externas, sin exponer todavía la decisión de implementación. El C2 desglosa esa caja en 5 contenedores + 1 infraestructura compartida, cada uno con una responsabilidad separada (captura de criterios, orquestación/programación, notificación, captura de respuestas, reporting), evitando el error común de un "contenedor que hace de todo".
-- **Cómo representa las necesidades del cliente**: la decisión de modelar los contenedores como flujos de Power Automate y formularios de Microsoft Forms —en vez de servicios custom— refleja directamente el requisito del cliente de usar únicamente herramientas ya aprobadas por la universidad (ver `00-preliminary-vision/ficha_caracterizacion.md`). El flujo de notificación con respuesta del profesor (`Responde aprobación/rechazo`) traduce al C2 la compuerta de decisión "¿Acepta?" que el equipo ya había modelado en BPMN.
+- **Estructura del modelo**: el C1 muestra el proceso como una sola caja frente a tres actores y dos sistemas externos. El C2 abre esa caja en dos contenedores con responsabilidades distintas: la Hoja de Muestreo decide *a quién* se encuesta y la Hoja de Asignación PAT decide *en qué clase y con qué PAT*. No hay contenedores de aplicación (flujos, servicios, formularios) porque hoy no existen: toda la lógica la ejecuta la coordinadora a mano.
+- **Cómo representa las necesidades del cliente**: el modelo deja a la vista los tres puntos manuales de la ficha de caracterización. Las relaciones punteadas son exactamente el trabajo repetitivo que la cliente quiere eliminar: la exportación desde SIGA, la copia entre hojas y el correo uno a uno. También muestra que los datos personales salen de SIGA y quedan copiados en las hojas, que es el punto de partida del análisis de seguridad (Taller 5) y de normatividad (Taller 6).
+- **Papel de cada actor** (definición única para todos los talleres):
+  - **Coordinadora de la encuesta**: opera todo el proceso. Exporta de SIGA, arma la muestra, asigna PAT a clases y escribe los correos.
+  - **Estudiante PAT**: reporta su disponibilidad horaria y aplica la encuesta en el salón. No diseña la muestra ni responde la encuesta. Entra al C1 porque su disponibilidad es un insumo de la Hoja de Asignación PAT.
+  - **Profesor**: recibe el aviso por correo y responde si cede o no su clase.
+  - **Estudiantes encuestados**: no aparecen en el C1 porque responden la encuesta en el salón y no interactúan con las hojas ni con el correo del proceso. Sí aparecen en el mapa de infraestructura (Taller 4), que muestra a todos los participantes.
 - **Supuestos tomados**:
-  - Se asume que SIGA expone algún mecanismo de consulta (API o extracción periódica) accesible desde Power Automate; no se tiene aún confirmación técnica de este acceso, por lo que queda documentado como riesgo a validar con el área de TI de la universidad.
-  - Se asume que la aplicación de la encuesta al estudiante se realiza mediante un formulario de Microsoft Forms distribuido junto con la notificación, ya que el modelo de información previo señala "registrar respuestas de estudiantes" como responsabilidad del sistema sin especificar el canal.
-  - El repositorio de programación se modela como infraestructura compartida (SharePoint List/Excel Online) y no como un contenedor de aplicación, porque no expone lógica propia — solo almacena datos que los demás contenedores leen y escriben.
+  - SIGA no expone una API de integración conocida; los datos salen por consulta web y exportación a CSV/Excel (hallazgo H1 del Taller 4).
+  - Las dos hojas viven en OneDrive. Según el Taller 4, la cuenta es la institucional de la coordinadora; con quién se comparten está pendiente (pregunta P2 de [`06-normatividad/preguntas-cliente.md`](../06-normatividad/preguntas-cliente.md)).
+  - El canal por el que el PAT reporta su disponibilidad (correo, edición directa de la hoja u otro) no está confirmado (pregunta P7). En el C2 se dibuja como entrada a la Hoja de Asignación PAT.
+  - El equipo de cómputo de la coordinadora no se dibuja en el C2 porque es infraestructura, no un contenedor. Aparece en el mapa del Taller 4.
 
 ## 📈 Diagrama final entregado
 
-- [`c1-contexto-final.drawio`](c1-contexto-final.drawio) — Vista de Contexto (C1) del Sistema de Automatización de Logística de Encuestas.
-- [`c2-contenedores-final.drawio`](c2-contenedores-final.drawio) — Vista de Contenedores (C2) del mismo sistema.
+- [`c1-contexto-final.drawio`](c1-contexto-final.drawio): vista de contexto (C1) del proceso actual.
+- [`c2-contenedores-final.drawio`](c2-contenedores-final.drawio): vista de contenedores (C2) del proceso actual.
 
 Ambos archivos se abren con [draw.io / diagrams.net](https://app.diagrams.net/) (File → Open From → Device).
 
@@ -47,28 +55,28 @@ Ambos archivos se abren con [draw.io / diagrams.net](https://app.diagrams.net/) 
 
 | Nombre del elemento | Tipo | Descripción | Responsable |
 |---|---|---|---|
-| Coordinadora de Encuestas | Actor | Define criterios y parámetros de la encuesta (fechas, muestra) | Vicerrectoría de Desarrollo (Johanna Molina) |
-| Profesor | Actor | Recibe notificación y aprueba/ajusta la aplicación en su horario | Facultades |
-| Estudiante PAT | Actor | Diligencia la encuesta en el horario asignado | Estudiantes participantes |
-| Sistema de Automatización de Logística de Encuestas | Sistema en alcance | Sistema propuesto por el equipo (C1) | Equipo del taller |
-| SIGA | Sistema externo | Provee horarios de clase y disponibilidad de estudiantes | Dirección de TI - Unisabana |
-| Correo Institucional (Exchange Online) | Sistema externo | Canal de entrega de notificaciones | Dirección de TI - Unisabana |
-| Formulario de Configuración | Contenedor (Microsoft Forms/SharePoint List) | Captura de criterios de la coordinadora | Equipo del taller |
-| Flujo de Programación | Contenedor (Power Automate) | Cruza disponibilidad y genera la programación | Equipo del taller |
-| Flujo de Notificación | Contenedor (Power Automate) | Notifica a profesores y recoge su respuesta | Equipo del taller |
-| Formulario de Encuesta | Contenedor (Microsoft Forms) | Captura las respuestas del estudiante | Equipo del taller |
-| Dashboard de Seguimiento | Contenedor (Power BI) | Métricas de participación y avance | Equipo del taller |
-| Repositorio de Programación | Infraestructura (SharePoint List / Excel Online) | Almacena criterios, programación y resultados | Equipo del taller |
+| Coordinadora de la encuesta | Actor | Opera todo el proceso: exporta de SIGA, arma la muestra, asigna PAT y avisa a los profesores | Vicerrectoría de Desarrollo (Johanna Molina) |
+| Estudiante PAT | Actor | Reporta su disponibilidad horaria y aplica la encuesta en el salón | Estudiantes PAT |
+| Profesor | Actor | Recibe el aviso por correo y acepta o rechaza ceder su clase | Facultades |
+| Gestión manual de la logística de la encuesta | Sistema en alcance (AS-IS) | Proceso actual, operado a mano con Excel y correo | Vicerrectoría de Desarrollo |
+| SIGA | Sistema externo | Fuente de horarios, programas y datos personales; sin API conocida, exportación manual | Dirección de TI - Unisabana |
+| Correo institucional (Exchange Online) | Sistema externo | Canal por el que se avisa a cada profesor y se reciben sus respuestas | Dirección de TI - Unisabana |
+| Hoja de Muestreo | Contenedor de datos (Excel en OneDrive) | Muestra de estudiantes por programa y semestre; contiene copias de datos personales de SIGA | Coordinadora de la encuesta |
+| Hoja de Asignación PAT | Contenedor de datos (Excel en OneDrive) | Cruce de clases muestreadas con la disponibilidad de los PAT; lista de clases a notificar | Coordinadora de la encuesta |
 
 ## 🔍 Investigación complementaria
 
 ### Tema investigado:
-Arquitecturas de automatización sobre Microsoft Power Platform en instituciones de educación superior, y su representación con el modelo C4.
+Las hojas de cálculo como "sistema" de un proceso administrativo: qué riesgos documenta la literatura y cómo se representan en C4.
 
 ### Resumen:
-El modelo C4 fue diseñado originalmente pensando en arquitecturas de software a medida (microservicios, SPAs, bases de datos propias), por lo que aplicarlo a una solución basada en Power Automate/SharePoint/Power BI exige un ajuste de vocabulario: cada "contenedor" no es un servicio desplegado por el equipo, sino un artefacto configurado dentro de un mismo tenant de Microsoft 365 (un flujo, una lista, un dashboard). Esta decisión es consistente con guías de referencia de Microsoft sobre la arquitectura de soluciones en Power Platform, que recomiendan documentar cada flujo y cada conector como un componente independiente con una responsabilidad única, incluso cuando todos corren sobre la misma plataforma — exactamente el mismo principio que persigue el C2 de C4 al pedir "responsabilidades separadas, no un contenedor que hace de todo".
+El modelo C4 se pensó para software a medida, pero define un contenedor como "una aplicación o un almacén de datos" e incluye como ejemplos un esquema de base de datos o una carpeta en un sistema de archivos [1]. Eso permite modelar un proceso basado en hojas de cálculo: cada libro de Excel que guarda datos del proceso es un contenedor de datos, y los sistemas de los que se copia la información son sistemas externos [2]. Por eso el C2 no tiene contenedores de aplicación: no hay código, la lógica la ejecuta una persona.
 
-En el sector educativo, este patrón (automatizar procesos administrativos de bajo volumen y alto costo manual —como programaciones y notificaciones— con herramientas *low-code* ya licenciadas institucionalmente) es común en universidades que buscan evitar el costo y el riesgo de mantenimiento de desarrollos a medida, priorizando en cambio gobernanza sobre datos (quién puede leer/escribir el repositorio de programación) y trazabilidad de las aprobaciones (por qué se documentó explícitamente la respuesta del profesor como una relación de vuelta hacia el Flujo de Notificación, reflejando la compuerta de decisión ya identificada en el BPMN del Taller 1).
+La investigación sobre errores en hojas de cálculo respalda que esto se trate como un riesgo de arquitectura y no solo como una incomodidad. Panko [3] resume quince años de estudios: los errores en hojas de cálculo son frecuentes y significativos, se presentan en todos los grupos estudiados (estudiantes y profesionales) y la única técnica con efectividad demostrada para detectarlos es la revisión celda por celda. En este proceso, la Hoja de Asignación PAT se llena copiando datos a mano entre archivos, que es justo el tipo de operación donde se concentran esos errores (hallazgo H4 del Taller 4).
+
+El segundo riesgo del modelo está en cómo se comparten los archivos. OneDrive permite enlaces de tipo "Cualquier persona", que funcionan para quien reciba el enlace aunque se reenvíe fuera de la organización, y enlaces de tipo "Personas de la organización", que dan acceso a cualquier usuario interno que tenga el enlace [4][5]. Como las dos hojas contienen datos personales copiados de SIGA, el tipo de enlace con el que se comparten define el alcance real de la exposición. Por eso esa pregunta quedó abierta con la cliente y es la amenaza T1 del Taller 5.
+
+Por último, se buscó cómo han resuelto otras universidades este mismo patrón de hoja de cálculo más correo masivo. La Universidad Nacional de Singapur (NUS) documenta áreas administrativas que usan Power Automate para enviar correos masivos personalizados (por ejemplo, invitaciones con un adjunto distinto para cada destinatario) a partir de hojas de Excel, en lugar de enviarlos a mano. El equipo que lo implementó advierte que para que funcione la hoja de origen tiene que estar correcta [6]. Esto confirma que el punto de partida de cualquier mejora (Taller 7) es la calidad y el control de las dos hojas que este C2 modela.
 
 ## 📚 Referencias
 

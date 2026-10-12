@@ -9,21 +9,15 @@ Taller 5 - Evaluación de Seguridad con STRIDE
 
 ## 📚 Referencias utilizadas
 
-1. Microsoft. *Prevent data exfiltration with data loss prevention (DLP) policies*. Microsoft Learn. https://learn.microsoft.com/en-us/power-automate/guidance/coding-guidelines/prevent-data-exfiltration. Fecha de consulta: 18/09/2026.
-2. Microsoft. *Security in Microsoft Power Platform* (identidades, acceso, roles de seguridad, políticas de datos). Microsoft Learn. https://learn.microsoft.com/en-us/power-platform/admin/security/security-overview. Fecha de consulta: 18/09/2026.
-3. Congreso de la República de Colombia. *Ley Estatutaria 1581 de 2012 (Habeas Data) - Protección de Datos Personales*. https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=49981. Fecha de consulta: 18/09/2026.
-4. Universidad de La Sabana. *Política de Protección de Datos Personales*. https://www.unisabana.edu.co/nosotros/politica-de-proteccion-de-datos. Fecha de consulta: 18/09/2026 (reconocimiento pasivo autorizado, solo lectura de información pública).
-5. OWASP Foundation. *Threat Modeling - STRIDE*. https://owasp.org/www-community/Threat_Modeling. Fecha de consulta: 18/09/2026.
-6. OWASP Foundation. *OWASP Juice Shop Project*. https://owasp.org/www-project-juice-shop/. Fecha de consulta: 18/09/2026 (referencia metodológica del caso base de clase).
-7. Fuente asistida por IA: Claude (Anthropic), septiembre 2026.
-
----
-
-## 📌 Recomendaciones
-
-- Usa formato APA o IEEE para citar.
-- No incluyas fuentes como Wikipedia si hay mejores alternativas.
-- Si usas inteligencia artificial para redactar o investigar, cítalo como "Fuente asistida por IA: Claude (Anthropic), septiembre 2026".
+1. Microsoft. (s. f.). *Share files and folders in Microsoft OneDrive*. Microsoft Support. https://support.microsoft.com/en-us/office/share-files-and-folders-in-microsoft-onedrive-9fcc2f7d-de0c-4cec-93b0-a82024800c07. Fecha de consulta: 12/10/2026.
+2. Microsoft. (s. f.). *Manage file sharing in SharePoint and OneDrive* (módulo de capacitación). Microsoft Learn. https://learn.microsoft.com/en-us/training/modules/manage-access-for-external-users/09-manage-file-sharing-sharepoint-onedrive. Fecha de consulta: 12/10/2026.
+3. Microsoft. (2025). *Microsoft Entra multifactor authentication overview*. Microsoft Learn. https://learn.microsoft.com/en-us/entra/identity/authentication/concept-mfa-howitworks. Fecha de consulta: 12/10/2026.
+4. Congreso de la República de Colombia. *Ley Estatutaria 1581 de 2012 (Habeas Data) - Protección de Datos Personales*. https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=49981. Fecha de consulta: 18/09/2026.
+5. Universidad de La Sabana. *Política de Protección de Datos Personales*. https://www.unisabana.edu.co/nosotros/politica-de-proteccion-de-datos. Fecha de consulta: 18/09/2026 (reconocimiento pasivo autorizado, solo lectura de información pública).
+6. OWASP Foundation. *Threat Modeling*. https://owasp.org/www-community/Threat_Modeling. Fecha de consulta: 18/09/2026.
+7. OWASP Foundation. *OWASP Juice Shop Project*. https://owasp.org/www-project-juice-shop/. Fecha de consulta: 18/09/2026 (referencia metodológica del caso base de clase).
+8. Equipo del taller. *Mapa de infraestructura AS-IS y hallazgos H1 a H6* (Taller 4), [`04-infraestructura/informe.md`](../04-infraestructura/informe.md), 2026.
+9. Fuente asistida por IA: Claude (Anthropic), septiembre y octubre de 2026.
 
 ---
 

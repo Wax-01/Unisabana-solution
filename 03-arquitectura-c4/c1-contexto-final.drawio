@@ -1,0 +1,55 @@
+<mxfile host="app.diagrams.net" modified="2026-10-12T18:00:00.000Z" agent="AREM-Taller3" version="24.0.0" type="device">
+  <diagram id="c1-contexto-as-is" name="C1 - Contexto (AS-IS) Gestión de la encuesta">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="titulo" value="C1 — Contexto (AS-IS): gestión manual de la logística de la encuesta de autosatisfacción&#10;Universidad de La Sabana · Vicerrectoría de Desarrollo · estado actual, octubre 2026" style="text;html=1;align=center;verticalAlign=middle;fontSize=14;fontStyle=1;fontColor=#222222;" vertex="1" parent="1">
+          <mxGeometry x="40" y="10" width="1080" height="45" as="geometry" />
+        </mxCell>
+
+        <mxCell id="coord" value="Coordinadora de la encuesta&#10;(Vicerrectoría de Desarrollo)&#10;[Persona]" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1168bd;fontColor=#ffffff;strokeColor=#0b4884;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="90" width="200" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="pat" value="Estudiante PAT&#10;[Persona]" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1168bd;fontColor=#ffffff;strokeColor=#0b4884;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="420" width="200" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="profesor" value="Profesor&#10;[Persona]" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1168bd;fontColor=#ffffff;strokeColor=#0b4884;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="900" y="560" width="200" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="sistema" value="Gestión manual de la logística&#10;de la encuesta de autosatisfacción&#10;[Sistema en alcance · AS-IS]&#10;&#10;Muestra, asignación de PAT a clases&#10;y aviso a profesores" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#08427b;fontColor=#ffffff;strokeColor=#052e56;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="420" y="250" width="300" height="150" as="geometry" />
+        </mxCell>
+
+        <mxCell id="siga" value="SIGA&#10;(sistema académico institucional)&#10;[Sistema externo]&#10;Horarios, programas y datos&#10;personales de estudiantes y profesores" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#8a8a8a;fontColor=#ffffff;strokeColor=#5c5c5c;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="880" y="80" width="240" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="correo" value="Correo institucional&#10;(Exchange Online · Microsoft 365)&#10;[Sistema externo]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#8a8a8a;fontColor=#ffffff;strokeColor=#5c5c5c;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="880" y="330" width="240" height="110" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e1" value="Define criterios de la muestra, cruza&#10;horarios y asigna PAT a clases&#10;(manual, en hojas de Excel)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;endArrow=block;" edge="1" parent="1" source="coord" target="sistema">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="Reporta su disponibilidad horaria&#10;para aplicar la encuesta en el salón" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;endArrow=block;" edge="1" parent="1" source="pat" target="sistema">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="Exportación manual CSV/Excel de horarios,&#10;programas y datos personales&#10;(la coordinadora la descarga; sin API)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;dashed=1;endArrow=block;" edge="1" parent="1" source="siga" target="sistema">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="Aviso a cada profesor,&#10;uno a uno (Outlook, manual)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;dashed=1;endArrow=block;" edge="1" parent="1" source="sistema" target="correo">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="Entrega el aviso / recibe la respuesta&#10;(acepta o rechaza ceder su clase)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;startArrow=block;endArrow=block;" edge="1" parent="1" source="correo" target="profesor">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="leyenda" value="Leyenda: azul oscuro = sistema en alcance · gris = sistema externo (no lo controla la Vicerrectoría) · elipse = persona&#10;Línea punteada = intercambio manual (descarga de archivo o correo escrito a mano) · línea continua = interacción directa&#10;Los estudiantes encuestados no aparecen: responden la encuesta en el salón y no interactúan con este sistema." style="text;html=1;align=left;verticalAlign=middle;fontSize=10;fontColor=#444444;" vertex="1" parent="1">
+          <mxGeometry x="40" y="690" width="1080" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

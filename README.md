@@ -32,9 +32,7 @@ Esto genera demoras, errores de cruce, profesores que pueden quedar sin avisar, 
 
 ## 🗺️ Cómo se implementa
 
-El detalle de beneficios esperados, fases y tiempos estará en el **Resumen Ejecutivo** (en preparación).
-
-Mientras tanto, la propuesta de mejora y su priorización están en [`07-opportunities-solutions/mejora-arquitectura.md`](07-opportunities-solutions/mejora-arquitectura.md).
+La propuesta de mejora, su priorización y los beneficios esperados están en [`07-opportunities-solutions/mejora-arquitectura.md`](07-opportunities-solutions/mejora-arquitectura.md).
 
 ## 📂 Si quiere ver el detalle técnico completo
 
@@ -45,17 +43,19 @@ Todo el análisis que sustenta esta propuesta está documentado carpeta por carp
 | [`00-preliminary-vision/`](00-preliminary-vision/) | Contexto del cliente y visión de la solución | Disponible |
 | [`01-bpmn/`](01-bpmn/) | Cómo funciona hoy el proceso de negocio analizado | Disponible |
 | [`02-modelo-informacion/`](02-modelo-informacion/) | Qué información maneja el negocio y cómo fluye | Disponible |
-| [`03-arquitectura-c4/`](03-arquitectura-c4/) | Los sistemas y cómo se conectan | Disponible |
+| [`03-arquitectura-c4/`](03-arquitectura-c4/) | Los sistemas y las hojas de cálculo que se usan hoy, y cómo se conectan | Disponible |
 | [`04-infraestructura/`](04-infraestructura/) | Dónde corre todo hoy y qué riesgos técnicos tiene | Disponible |
-| [`05-seguridad-stride/`](05-seguridad-stride/) | Análisis de seguridad de la información | Disponible |
-| `06-normatividad/` | Cumplimiento legal y normativo | En preparación |
+| [`05-seguridad-stride/`](05-seguridad-stride/) | Riesgos de seguridad del proceso actual | Disponible |
+| [`06-normatividad/`](06-normatividad/) | Cumplimiento legal del proceso actual y preguntas pendientes | Disponible |
 | [`07-opportunities-solutions/`](07-opportunities-solutions/) | La solución propuesta y qué brechas cierra | Disponible |
 | `08-integracion-vistas/` | Cómo se conecta todo lo anterior en una sola arquitectura | En preparación |
 | `09-presentacion-final/` | Presentación ejecutiva, plan de implementación y gobernanza | En preparación |
 
+Las carpetas 03 a 06 describen el mismo proceso actual con los mismos nombres de componentes; la [tabla de trazabilidad](trazabilidad.md) muestra cómo se conecta cada componente con sus riesgos.
+
 ## 🔗 Repositorios relacionados
 
-Los talleres de práctica del equipo (caso de clase y borradores) viven en repositorios aparte. Este repositorio reúne la parte aplicada al cliente.
+Los talleres de práctica del equipo (caso de clase y borradores) viven en repositorios aparte. **Este repositorio tiene la versión oficial de cada entrega aplicada al cliente**; si hay diferencias con un repositorio de taller, vale la de aquí.
 
 | Taller | Repositorio |
 |---|---|

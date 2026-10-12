@@ -9,27 +9,17 @@ _Taller 3 - Arquitectura Actual del Sistema con el Modelo C4_
 
 ## 📚 Referencias utilizadas
 
-1. Brown, Simon. *The C4 Model for Visualising Software Architecture*. c4model.com, 2018. https://c4model.com/
-2. Brown, Simon. *C4 Model - Context diagram* y *Container diagram*. c4model.com. https://c4model.com/diagrams/context y https://c4model.com/diagrams/container
-3. Microsoft. *Power Automate documentation - Cloud flows overview*. Microsoft Learn. https://learn.microsoft.com/power-automate/getting-started
-4. Microsoft. *SharePoint REST API reference*. Microsoft Learn. https://learn.microsoft.com/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
-5. Microsoft. *Power BI documentation*. Microsoft Learn. https://learn.microsoft.com/power-bi/
-6. Microsoft. *Microsoft Forms documentation*. Microsoft Support. https://support.microsoft.com/office/microsoft-forms-c93aa948-6cb5-4b47-9fe4-585e124c8763
-7. Object Management Group (OMG). *Business Process Model and Notation (BPMN) 2.0 Specification*. https://www.omg.org/spec/BPMN/
-8. The Open Group. *ArchiMate 3.2 Specification*. https://pubs.opengroup.org/architecture/archimate3-doc/
-9. Equipo del taller. *Ficha de caracterización y visión arquitectónica del cliente* (Taller 0), repositorio interno del equipo, 2026.
-10. Equipo del taller. *Informe BPMN del proceso de programación de encuestas* (Taller 1), repositorio interno del equipo, 2026.
-11. Equipo del taller. *Modelo de información - entidades y cardinalidades* (Taller 2), repositorio interno del equipo, 2026.
+1. Brown, S. (s. f.). *Container diagram*. The C4 model for visualising software architecture. https://c4model.com/diagrams/container. Fecha de consulta: 12/10/2026.
+2. Brown, S. (s. f.). *System context diagram*. The C4 model for visualising software architecture. https://c4model.com/diagrams/system-context. Fecha de consulta: 12/10/2026.
+3. Panko, R. R. (2000). Spreadsheet errors: What we know. What we think we can do. En *Proceedings of the European Spreadsheet Risks Interest Group (EuSpRIG) 2000* (pp. 7-17). arXiv:0802.3457. https://arxiv.org/abs/0802.3457. Fecha de consulta: 12/10/2026.
+4. Microsoft. (s. f.). *Share files and folders in Microsoft OneDrive*. Microsoft Support. https://support.microsoft.com/en-us/office/share-files-and-folders-in-microsoft-onedrive-9fcc2f7d-de0c-4cec-93b0-a82024800c07. Fecha de consulta: 12/10/2026.
+5. Microsoft. (s. f.). *Manage file sharing in SharePoint and OneDrive* (módulo de capacitación). Microsoft Learn. https://learn.microsoft.com/en-us/training/modules/manage-access-for-external-users/09-manage-file-sharing-sharepoint-onedrive. Fecha de consulta: 12/10/2026.
+6. National University of Singapore. (s. f.). *Power-automating workflows*. Inside NUS. https://nus.edu.sg/inside-nus/stories/power-automating-workflows. Fecha de consulta: 12/10/2026.
+7. Equipo del taller. *Ficha de caracterización y visión del cliente* (Taller 0), [`00-preliminary-vision/`](../00-preliminary-vision/), 2026.
+8. Equipo del taller. *Informe BPMN del proceso de programación de encuestas* (Taller 1), [`01-bpmn/informe.md`](../01-bpmn/informe.md), 2026.
+9. Equipo del taller. *Mapa de infraestructura AS-IS* (Taller 4), [`04-infraestructura/informe.md`](../04-infraestructura/informe.md), 2026.
 
----
-
-## 📌 Recomendaciones
-
-- Usa formato APA o IEEE para citar.
-- No incluyas fuentes como Wikipedia si hay mejores alternativas.
-- Si usas inteligencia artificial para redactar o investigar, cítalo como "Fuente asistida por IA: ChatGPT, julio 2025".
-
-_Fuente asistida por IA: Claude (Anthropic), septiembre 2026 — usada para estructurar y redactar el informe técnico y los diagramas C1/C2 a partir de la información ya levantada por el equipo en talleres previos._
+_Fuente asistida por IA: Claude (Anthropic), septiembre y octubre de 2026. Se usó para estructurar y redactar el informe y los diagramas C1/C2 a partir de la información levantada por el equipo con la cliente. Las fuentes [3] a [6] fueron verificadas en la página original._
 
 ---
 
